@@ -21,7 +21,7 @@ fn parse_arguments() -> Result<(Ipv4Addr, String), &'static str>{
 
     if args.len() != 3 {
         println!("Too few arguments. See usage:");
-        panic!(print_help());
+        panic!("{:?}",print_help());       
     }
 
     let dst_ip = args[1].parse::<Ipv4Addr>().unwrap();
@@ -34,7 +34,7 @@ fn parse_arguments() -> Result<(Ipv4Addr, String), &'static str>{
 fn main() {
     let parsed_args = parse_arguments().unwrap();
 
-    let count = 1;
+    let count = 10000;
 
     send_tcp_packets(parsed_args.0, parsed_args.1, count);  
 
