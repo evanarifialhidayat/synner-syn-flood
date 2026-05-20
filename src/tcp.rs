@@ -118,7 +118,6 @@ pub mod packet {
             if &i % 10000 == 0 {
                 println!("Sent {:?} packets", &i);
             }
-
             tx.build_and_send(1, 66, &mut |packet: &mut [u8]| {
                 build_random_packet(&partial_packet, packet);
             });
